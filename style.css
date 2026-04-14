@@ -23,13 +23,14 @@ top: 0;
 left: 0;
 width: 100%;
 z-index: 9999;
-background: rgba(15, 23, 42, 0.88);
+background: rgba(15, 23, 42, 0.65);
 backdrop-filter: blur(12px);
 padding: 20px 10%;
 display: flex;
 justify-content: space-between;
 align-items: center;
 box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 
 .logo-link {
@@ -68,8 +69,9 @@ overflow: hidden;
 display: flex;
 flex-direction: column;
 justify-content: center;
-padding-top: 0;
-margin-top: 0;
+align-items: center;
+padding: 0;
+margin: 0;
 }
 
 #starfield {
