@@ -1,0 +1,149 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    background: #0f172a;
+    color: white;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 25px 10%;
+    align-items: center;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+}
+
+.hero-content {
+    text-align: center;
+    margin-top: 100px;
+    padding: 0 20px;
+}
+
+.hero h1 {
+    font-size: 56px;
+    font-weight: 800;
+}
+
+.hero h3 {
+    font-size: 24px;
+    margin: 20px 0;
+    color: #38bdf8;
+}
+
+.hero p {
+    max-width: 700px;
+    margin: auto;
+    font-size: 18px;
+}
+
+.buttons {
+    margin-top: 30px;
+}
+
+.btn {
+    padding: 12px 24px;
+    margin: 10px;
+    text-decoration: none;
+    border-radius: 8px;
+    display: inline-block;
+}
+
+.primary {
+    background: #38bdf8;
+    color: black;
+}
+
+.secondary {
+    border: 1px solid #38bdf8;
+    color: #38bdf8;
+}
+
+.section {
+    padding: 80px 10%;
+    text-align: center;
+}
+
+.section h2 {
+    font-size: 36px;
+    margin-bottom: 30px;
+}
+
+.dark {
+    background: #1e293b;
+}
+
+.timeline {
+    max-width: 800px;
+    margin: auto;
+}
+
+.timeline-item {
+    margin-bottom: 30px;
+    text-align: left;
+    border-left: 3px solid #38bdf8;
+    padding-left: 20px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.card {
+    background: #1e293b;
+    padding: 30px;
+    border-radius: 12px;
+}
+
+.card h3 {
+    font-size: 32px;
+    color: #38bdf8;
+}
+
+.case-box {
+    max-width: 800px;
+    margin: auto;
+    text-align: left;
+    background: #334155;
+    padding: 30px;
+    border-radius: 12px;
+}
+
+.contact a {
+    color: #38bdf8;
+    text-decoration: none;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #020617;
+}
