@@ -340,6 +340,12 @@ animateSkills();
 skillsPlayed = true;
 }
 });
+/* Innovation Explorers Counter */
+fetch('https://api.countapi.xyz/hit/vaisakhravi.github.io/portfolio')
+.then(response => response.json())
+.then(data => {
+document.getElementById('visitor-count').innerText = data.value;
+});
 
 </script>
 
