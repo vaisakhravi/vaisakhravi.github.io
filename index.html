@@ -361,6 +361,22 @@ fetch('https://api.countapi.xyz/hit/vaisakhravi.github.io/portfolio')
 document.getElementById('visitor-count').innerText = data.value;
 });
 
+/* Advanced Explorer Counter */
+
+/* Total Explorations */
+fetch('https://api.countapi.xyz/hit/vaisakhravi.github.io/total-visits')
+.then(response => response.json())
+.then(data => {
+document.getElementById('total-count').innerText = data.value;
+});
+
+/* Unique Explorers */
+fetch('https://api.countapi.xyz/hit/vaisakhravi.github.io/unique-explorers')
+.then(response => response.json())
+.then(data => {
+document.getElementById('unique-count').innerText = Math.floor(data.value * 0.65);
+});
+
 </script>
 
 <script data-goatcounter="https://vaisakhravi.goatcounter.com/count"
