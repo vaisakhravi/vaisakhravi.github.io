@@ -13,7 +13,7 @@
 <header class="hero">
 <nav class="navbar"> <a href="https://www.linkedin.com/in/vaisakhravi/" target="_blank" class="logo-link"> <h2 class="logo">VR</h2> </a> <ul> <li><a href="#about">About</a></li> <li><a href="#timeline">Journey</a></li> <li><a href="#projects">Projects</a></li> <li><a href="#case-study">Case Study</a></li> <li><a href="#contact">Contact</a></li> </ul> </nav>
 
-<div class="hero-content fade-in">
+<div class="hero-content reveal active">
 <h1>Vaisakh Ravi</h1>
 <h3>Marketing Communications Specialist | Automation-Driven Innovator</h3>
 <p>
@@ -27,7 +27,7 @@ campaign excellence, and data-driven communication.
 </div>
 </header>
 
-<section id="about" class="section fade-in">
+<section id="about" class="section reveal">
 <h2>About Me</h2>
 <p>
 I specialize in building scalable marketing communication systems that merge strategy,
@@ -36,7 +36,7 @@ been about transforming workflows into efficient intelligent systems.
 </p>
 </section>
 
-<section id="timeline" class="section dark fade-in">
+<section id="timeline" class="section dark reveal">
 <h2>Career Journey</h2>
 
 <div class="timeline-modern">
@@ -151,7 +151,52 @@ been about transforming workflows into efficient intelligent systems.
 <p>© 2026 Vaisakh Ravi | Built with passion & automation</p>
 </footer>
 
-<script> const c1 = new countUp.CountUp('counter1', 1000, { suffix: '+' }); const c2 = new countUp.CountUp('counter2', 20, { suffix: '+' }); const c3 = new countUp.CountUp('counter3', 95, { suffix: '%' }); const c4 = new countUp.CountUp('counter4', 20, { suffix: '%' }); c1.start(); c2.start(); c3.start(); c4.start(); const scrollBtn = document.getElementById("scrollTopBtn"); window.onscroll = function() { if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) { scrollBtn.style.display = "block"; } else { scrollBtn.style.display = "none"; } }; function scrollToTop() { window.scrollTo({ top: 0, behavior: "smooth" }); } </script>
+<script>
+const c1 = new countUp.CountUp('counter1', 1000, { suffix: '+' });
+const c2 = new countUp.CountUp('counter2', 95, { suffix: '%' });
+const c3 = new countUp.CountUp('counter3', 95, { suffix: '%' });
+const c4 = new countUp.CountUp('counter4', 20, { suffix: '%' });
+
+c1.start();
+c2.start();
+c3.start();
+c4.start();
+
+const scrollBtn = document.getElementById("scrollTopBtn");
+
+window.onscroll = function() {
+if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+scrollBtn.style.display = "block";
+} else {
+scrollBtn.style.display = "none";
+}
+};
+
+function scrollToTop() {
+window.scrollTo({
+top: 0,
+behavior: "smooth"
+});
+}
+
+const reveals = document.querySelectorAll(".reveal");
+
+function revealOnScroll() {
+reveals.forEach(section => {
+const windowHeight = window.innerHeight;
+const elementTop = section.getBoundingClientRect().top;
+const revealPoint = 100;
+
+if (elementTop < windowHeight - revealPoint) {
+section.classList.add("active");
+}
+});
+}
+
+window.addEventListener("scroll", revealOnScroll);
+revealOnScroll();
+</script>
+
 <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
 </body>
 </html>
