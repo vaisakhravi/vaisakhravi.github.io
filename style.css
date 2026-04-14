@@ -556,3 +556,58 @@ transform: scale(1);
 animation: none;
 }
 }
+/* ===============================
+   EXPLORER COUNTER
+================================= */
+#explorer-counter {
+background: linear-gradient(180deg, #0f172a, #020617);
+padding-top: 80px;
+padding-bottom: 80px;
+}
+
+.explorer-stats {
+display: flex;
+justify-content: center;
+gap: 40px;
+flex-wrap: wrap;
+margin-top: 40px;
+}
+
+.explorer-box {
+background: #334155;
+padding: 35px 50px;
+border-radius: 20px;
+min-width: 250px;
+box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+transition: 0.3s ease;
+}
+
+.explorer-box:hover {
+transform: translateY(-6px);
+box-shadow: 0 12px 30px rgba(56,189,248,0.12);
+}
+
+.explorer-box h3 {
+font-size: 42px;
+color: #38bdf8;
+margin-bottom: 10px;
+font-weight: 800;
+}
+
+.explorer-box p {
+font-size: 18px;
+color: #cbd5e1;
+}
+
+/* Mobile */
+@media (max-width:768px) {
+.explorer-stats {
+flex-direction: column;
+align-items: center;
+}
+
+.explorer-box {
+width: 100%;
+max-width: 320px;
+}
+}
