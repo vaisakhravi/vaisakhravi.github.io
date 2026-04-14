@@ -10,10 +10,20 @@
 </head>
 <body>
 
+<!-- Reading Progress Bar -->
+<div id="reading-progress"></div>
+
+<!-- Navbar -->
 <nav class="navbar">
 <a href="index.html" class="logo-link">
 <h2 class="logo">VR</h2>
 </a>
+
+<div class="hamburger" id="hamburger">
+<span></span>
+<span></span>
+<span></span>
+</div>
 
 <ul id="nav-menu">
 <li><a href="index.html#about">About</a></li>
@@ -25,6 +35,13 @@
 </ul>
 </nav>
 
+<!-- Article Hero Banner -->
+<section class="article-hero">
+<h1>Case Study</h1>
+<p>Automation Transformation at Mouser Electronics</p>
+</section>
+
+<!-- Article Content -->
 <section class="section article-page">
 <div class="article-container">
 
@@ -97,6 +114,25 @@ Automation is not just about efficiency—it creates strategic capacity. By comb
 <footer>
 <p>© 2026 Vaisakh Ravi | Built with passion & automation</p>
 </footer>
+
+<!-- Scripts -->
+<script>
+/* Hamburger Menu */
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('nav-menu');
+
+hamburger.addEventListener('click', () => {
+navMenu.classList.toggle('active');
+});
+
+/* Reading Progress Bar */
+window.addEventListener('scroll', () => {
+const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+const scrolled = (winScroll / height) * 100;
+document.getElementById("reading-progress").style.width = scrolled + "%";
+});
+</script>
 
 </body>
 </html>
