@@ -26,11 +26,18 @@
 <h2 class="logo">VR</h2>
 </a>
 
-<ul>
+<div class="hamburger" id="hamburger">
+<span></span>
+<span></span>
+<span></span>
+</div>
+
+<ul id="nav-menu">
 <li><a href="#about">About</a></li>
 <li><a href="#timeline">Journey</a></li>
 <li><a href="#projects">Projects</a></li>
 <li><a href="#case-study">Case Study</a></li>
+<li><a href="#skills">Skills</a></li>
 <li><a href="#contact">Contact</a></li>
 </ul>
 </nav>
@@ -62,7 +69,6 @@ been about transforming workflows into efficient intelligent systems.
 
 <section id="timeline" class="section dark reveal">
 <h2>Career Journey</h2>
-
 <div class="timeline-modern">
 
 <div class="timeline-node">
@@ -108,17 +114,7 @@ been about transforming workflows into efficient intelligent systems.
 </div>
 </section>
 
-<section class="section metrics reveal">
-<h2>Achievements</h2>
-<div class="cards">
-<div class="card"><h3 id="counter1">0</h3><p>Campaigns Managed</p></div>
-<div class="card"><h3 id="counter2">0</h3><p>Automation Achieved</p></div>
-<div class="card"><h3 id="counter3">0</h3><p>Efficiency Improvement</p></div>
-<div class="card"><h3 id="counter4">0</h3><p>CTR Growth Increase</p></div>
-</div>
-</section>
-
-<section id="projects" class="section dark reveal">
+<section id="projects" class="section reveal">
 <h2>Automation Projects</h2>
 <div class="cards">
 <div class="card">
@@ -136,7 +132,7 @@ been about transforming workflows into efficient intelligent systems.
 </div>
 </section>
 
-<section id="case-study" class="section reveal">
+<section id="case-study" class="section dark reveal">
 <h2>Featured Case Study</h2>
 <div class="case-box">
 <h3>Marketing Workflow Automation Transformation at Mouser Electronics</h3>
@@ -144,6 +140,33 @@ been about transforming workflows into efficient intelligent systems.
 <p><strong>Action:</strong> Built automation systems using VBA, Power Automate, and hybrid integrations.</p>
 <p><strong>Result:</strong> Automated 95% of repetitive tasks and drastically accelerated campaign delivery.</p>
 <p><strong>Impact:</strong> Transformed marketing operations into scalable automated systems.</p>
+</div>
+</section>
+
+<section id="skills" class="section reveal">
+<h2>Core Skills</h2>
+<div class="skills">
+
+<div class="skill">
+<p>Marketing Automation</p>
+<div class="bar"><span style="width:95%"></span></div>
+</div>
+
+<div class="skill">
+<p>VBA & Power Automate</p>
+<div class="bar"><span style="width:92%"></span></div>
+</div>
+
+<div class="skill">
+<p>Campaign Operations</p>
+<div class="bar"><span style="width:90%"></span></div>
+</div>
+
+<div class="skill">
+<p>Analytics & Reporting</p>
+<div class="bar"><span style="width:88%"></span></div>
+</div>
+
 </div>
 </section>
 
@@ -160,49 +183,58 @@ been about transforming workflows into efficient intelligent systems.
 <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
 
 <script>
-const c1 = new countUp.CountUp('counter1', 1000, { suffix: '+' });
-const c2 = new countUp.CountUp('counter2', 95, { suffix: '%' });
-const c3 = new countUp.CountUp('counter3', 95, { suffix: '%' });
-const c4 = new countUp.CountUp('counter4', 20, { suffix: '%' });
+/* COUNTERS */
+new countUp.CountUp('counter1',1000,{suffix:'+'}).start();
 
-c1.start();
-c2.start();
-c3.start();
-c4.start();
+/* HAMBURGER */
+const hamburger=document.getElementById('hamburger');
+const navMenu=document.getElementById('nav-menu');
 
-const scrollBtn = document.getElementById("scrollTopBtn");
+hamburger.addEventListener('click',()=>{
+navMenu.classList.toggle('active');
+hamburger.classList.toggle('open');
+});
 
-window.onscroll = function () {
-scrollBtn.style.display =
-document.documentElement.scrollTop > 300 ? "block" : "none";
+/* SCROLL TOP */
+const scrollBtn=document.getElementById("scrollTopBtn");
+window.onscroll=function(){
+scrollBtn.style.display=document.documentElement.scrollTop>300?"block":"none";
 };
-
-function scrollToTop() {
-window.scrollTo({ top: 0, behavior: "smooth" });
+function scrollToTop(){
+window.scrollTo({top:0,behavior:"smooth"});
 }
 
-const reveals = document.querySelectorAll(".reveal");
-function revealOnScroll() {
-reveals.forEach(section => {
-if(section.getBoundingClientRect().top < window.innerHeight - 100){
+/* REVEAL */
+const reveals=document.querySelectorAll(".reveal");
+function revealOnScroll(){
+reveals.forEach(section=>{
+if(section.getBoundingClientRect().top<window.innerHeight-100){
 section.classList.add("active");
 }
 });
 }
-window.addEventListener("scroll", revealOnScroll);
+window.addEventListener("scroll",revealOnScroll);
 revealOnScroll();
 
-/* STARFIELD */
-const canvas = document.getElementById("starfield");
-const ctx = canvas.getContext("2d");
+/* STARFIELD + PARALLAX */
+const canvas=document.getElementById("starfield");
+const ctx=canvas.getContext("2d");
 
 function resizeCanvas(){
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
 }
 resizeCanvas();
 
-let stars = [];
+let mouseX=0;
+let mouseY=0;
+
+document.addEventListener("mousemove",(e)=>{
+mouseX=(e.clientX/window.innerWidth-0.5)*20;
+mouseY=(e.clientY/window.innerHeight-0.5)*20;
+});
+
+let stars=[];
 for(let i=0;i<120;i++){
 stars.push({
 x:Math.random()*canvas.width,
@@ -218,13 +250,13 @@ ctx.fillStyle="white";
 
 stars.forEach(s=>{
 ctx.beginPath();
-ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
+ctx.arc(s.x+mouseX,s.y+mouseY,s.r,0,Math.PI*2);
 ctx.fill();
 
-s.y += s.d;
-if(s.y > canvas.height){
-s.y = 0;
-s.x = Math.random()*canvas.width;
+s.y+=s.d;
+if(s.y>canvas.height){
+s.y=0;
+s.x=Math.random()*canvas.width;
 }
 });
 
@@ -232,7 +264,7 @@ requestAnimationFrame(drawStars);
 }
 drawStars();
 
-window.addEventListener("resize", resizeCanvas);
+window.addEventListener("resize",resizeCanvas);
 </script>
 
 </body>
