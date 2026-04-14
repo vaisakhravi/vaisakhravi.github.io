@@ -278,6 +278,42 @@ requestAnimationFrame(drawStars);
 drawStars();
 
 window.addEventListener("resize",resizeCanvas);
+
+function animateSkills() {
+const skillBars = document.querySelectorAll(".bar span");
+
+skillBars.forEach((bar, index) => {
+const finalWidth = bar.getAttribute("data-width");
+
+setTimeout(() => {
+bar.style.width = "30%";
+
+setTimeout(() => {
+bar.style.width = "70%";
+
+setTimeout(() => {
+bar.style.width = finalWidth;
+}, 400);
+
+}, 400);
+
+}, index * 250);
+});
+}
+
+const skillsSection = document.querySelector("#skills");
+
+let skillsPlayed = false;
+
+window.addEventListener("scroll", () => {
+const rect = skillsSection.getBoundingClientRect();
+
+if (rect.top < window.innerHeight - 100 && !skillsPlayed) {
+animateSkills();
+skillsPlayed = true;
+}
+});
+
 </script>
 
 </body>
