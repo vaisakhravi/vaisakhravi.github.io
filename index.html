@@ -11,16 +11,7 @@
 <body>
 
 <header class="hero">
-<nav>
-<h2 class="logo">VR</h2>
-<ul>
-<li><a href="#about">About</a></li>
-<li><a href="#timeline">Journey</a></li>
-<li><a href="#projects">Projects</a></li>
-<li><a href="#case-study">Case Study</a></li>
-<li><a href="#contact">Contact</a></li>
-</ul>
-</nav>
+<nav class="navbar"> <a href="https://www.linkedin.com/in/vaisakhravi/" target="_blank" class="logo-link"> <h2 class="logo">VR</h2> </a> <ul> <li><a href="#about">About</a></li> <li><a href="#timeline">Journey</a></li> <li><a href="#projects">Projects</a></li> <li><a href="#case-study">Case Study</a></li> <li><a href="#contact">Contact</a></li> </ul> </nav>
 
 <div class="hero-content fade-in">
 <h1>Vaisakh Ravi</h1>
@@ -160,17 +151,7 @@ been about transforming workflows into efficient intelligent systems.
 <p>© 2026 Vaisakh Ravi | Built with passion & automation</p>
 </footer>
 
-<script>
-const c1 = new countUp.CountUp('counter1', 1000, { suffix: '+' });
-const c2 = new countUp.CountUp('counter2', 95, { suffix: '%' });
-const c3 = new countUp.CountUp('counter3', 95, { suffix: '%' });
-const c4 = new countUp.CountUp('counter4', 20, { suffix: '%' });
-
-c1.start();
-c2.start();
-c3.start();
-c4.start();
-</script>
-
+<script> const c1 = new countUp.CountUp('counter1', 1000, { suffix: '+' }); const c2 = new countUp.CountUp('counter2', 20, { suffix: '+' }); const c3 = new countUp.CountUp('counter3', 95, { suffix: '%' }); const c4 = new countUp.CountUp('counter4', 20, { suffix: '%' }); c1.start(); c2.start(); c3.start(); c4.start(); const scrollBtn = document.getElementById("scrollTopBtn"); window.onscroll = function() { if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) { scrollBtn.style.display = "block"; } else { scrollBtn.style.display = "none"; } }; function scrollToTop() { window.scrollTo({ top: 0, behavior: "smooth" }); } </script>
+<button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
 </body>
 </html>
